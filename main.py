@@ -3,21 +3,11 @@ import time
 import pyperclip
 from pynput import keyboard
 
-# ギャル語変換辞書
-gyaru_dict = {
-    "konnitiha": "コンチャ☆",
-    "すごい": "ヤバみ",
-    "かわいい": "カワボ💖",
-    "arigatou": "アザマル水産🐟",
-    "楽しい": "たのピ〜✨"
-}
+import llama_module
+
 
 def convert_to_gyaru(text):
-    # 空白を消す
-    text = text.replace(" ", "")
-    text = text.replace("　", "")
-
-    return gyaru_dict.get(text, text)
+    return llama_module.predict(text)
 
 def on_press(key):
     try:
